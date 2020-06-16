@@ -1,9 +1,12 @@
 import React from 'react';
-
-const TodoList = () => {
+import TodoListItem from './TodoListItem';
+import '../styles/TodoList.scss'
+const TodoList = ({todos, onRemove, onCheck}) => {
   return (
-    <div>
-      
+    <div className="TodoList">
+      {todos.map(todo => (
+        <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} onCheck={onCheck}/>
+      ))}
     </div>
   );
 };
